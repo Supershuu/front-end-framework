@@ -1,5 +1,5 @@
 {
-  "name": "@front-end-utils/cesium-utils",
+  "name": "@front-end-framework/cesium-utils",
   "version": "1.0.0",
   "description": "front-end-utils",
   "main": "./lib/index.cjs.js",

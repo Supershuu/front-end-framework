@@ -15,7 +15,7 @@
     "format": "prettier --write src/"
   },
   "dependencies": {
-    "@front-end-supershuu/threejs-utils": "file:../threeJs-utils",
-    "@front-end-utils/cesium-utils": "file:../cesium-utils"
+    "@front-end-framework/threejs-utils": "file:../threeJs-utils",
+    "@front-end-framework/cesium-utils": "file:../cesium-utils"
   }
 }
