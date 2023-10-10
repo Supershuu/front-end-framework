@@ -1,0 +1,40 @@
+import { AxesHelper, PerspectiveCamera, Scene, Vector3, WebGLRenderer } from 'three';
+import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
+import { CSS3DObject, CSS3DRenderer } from 'three/examples/jsm/renderers/CSS3DRenderer';
+import { TrackballControls } from 'three/examples/jsm/controls/TrackballControls';
+import { EffectComposer } from 'three/examples/jsm/postprocessing/EffectComposer';
+import { OutlinePass } from 'three/examples/jsm/postprocessing/OutlinePass';
+type CameraPosition = {
+    x: number;
+    y: number;
+    z: number;
+};
+declare class ThreeInit {
+    scene: Scene;
+    camera: PerspectiveCamera;
+    cameraPosition: CameraPosition;
+    renderer: WebGLRenderer;
+    dom: HTMLElement;
+    controls: OrbitControls;
+    axesHelper: AxesHelper;
+    cssObject: CSS3DObject;
+    trackBallControls: TrackballControls;
+    cssRender: CSS3DRenderer;
+    cssScene: Scene;
+    composer: EffectComposer;
+    outlinePass: OutlinePass;
+    tag: CSS3DObject;
+    constructor(position: Vector3, dom: HTMLElement);
+    initScene(): void;
+    render(): void;
+    initLight(): void;
+    initAxesHelper(size: number): void;
+    skybox(): void;
+    css3dRender(element: Array<HTMLElement>): void;
+    tubeGeo(): void;
+    loadGeo(): Promise<void>;
+    loadFbxInner(url: string): void;
+    loadFbxTree(url: string): void;
+    loadGlb(url: string, position?: [x: number, y: number, z: number], scale?: [x: number, y: number, z: number]): void;
+}
+export default ThreeInit;
