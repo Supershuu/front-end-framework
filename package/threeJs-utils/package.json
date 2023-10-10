@@ -25,7 +25,7 @@
     "build-only": "rimraf ./lib && vite build",
     "build-type": "tsc -p ./tsconfig.type.json --declaration --emitDeclarationOnly --declarationDir ./lib/types",
     "type-check": "vue-tsc --noEmit -p tsconfig.vitest.json --composite false",
-    "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore",
+    "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix",
     "format": "prettier --write src/"
   }
 }
