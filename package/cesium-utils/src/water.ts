@@ -10,9 +10,9 @@ import {
 } from 'cesium'
 
 class waterReservoir {
-  primitive: Primitive
+  primitive!: Primitive
   extrudedHeight: number
-  degrees: number[]
+  degrees: Cartesian3[]
   viewer: Viewer
   id: string
   height: number
@@ -24,7 +24,7 @@ class waterReservoir {
     this.height = height
     this._drawPoly(degrees)
   }
-  _drawPoly(degrees) {
+  _drawPoly(degrees:Cartesian3[]) {
     let that = this
     const instance = new GeometryInstance({
       geometry: new PolygonGeometry({

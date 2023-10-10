@@ -22,16 +22,19 @@ import {
   Terrain,
   Viewer
 } from 'cesium'
-import TooltipDiv from './tooltip'
+// @ts-ignore
+import TooltipDiv from './tooltip.js'
+import type {WaterDataType} from "../type/WaterDataType";
 export { data4, data3, data2, data_wangjiagou, data_dongfanghong, data } from './GeoArr'
 let viewer: Viewer
 Ion.defaultAccessToken =
   'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiI5NmFkZmZjMS01NDYzLTRhZjgtYTBhNi02N2ZkNTVkMTgxY2EiLCJpZCI6NTIwMDksImlhdCI6MTYxODM5Mjg1MX0.cB8V3NKIBCzMkb3J6YwL3yafHUFGxGPMlR9syq3CdKY'
+// @ts-ignore
 window.CESIUM_BASE_URL = '/'
 const initViewer = (
   container: string,
   options?: Viewer.ConstructorOptions,
-  callBack: () => void
+  callBack?: () => void
 ): Viewer => {
   viewer = new Viewer(container, {
     animation: false,
@@ -52,16 +55,14 @@ const initViewer = (
   viewer.scene.imageryLayers.add(imageryLayer)
   imageryLayer.readyEvent.addEventListener((provider) => {
     provider.errorEvent.addEventListener((error) => {
-      alert(`网络连接失败，请刷新! ${error}`)
-      window.location.reload()
+      if (callBack)callBack()
     })
-    callBack()
   })
   ;(viewer.cesiumWidget.creditContainer as HTMLElement).style.display = 'none'
   viewer.scene.globe.depthTestAgainstTerrain = false
   return viewer
 }
-const lookAt = (viewer: Viewer, lat, lon, height, heading, pitch, roll, duration) => {
+const lookAt = (viewer: Viewer, lat:number, lon:number, height:number, heading:number, pitch:number, roll:number, duration:number) => {
   viewer.camera.flyTo({
     destination: Cartesian3.fromDegrees(lat, lon, height),
     orientation: {
@@ -267,8 +268,8 @@ const loadPump = (
     }
   }, ScreenSpaceEventType.LEFT_CLICK)
 }
-const loadWaterPipe = (viewer: Viewer, datas, flag, list = []) => {
-  datas.forEach((item, index) => {
+const loadWaterPipe = (viewer: Viewer, datas:Array<WaterDataType>, flag:boolean, list:Array<{id:string,content:string}> = []) => {
+  datas.forEach((item) => {
     if (item.entity) {
       viewer.entities.add({
         id: item.id,
@@ -306,7 +307,7 @@ const loadWaterPipe = (viewer: Viewer, datas, flag, list = []) => {
       const pick = viewer.scene.pick(event.position)
       if (defined(pick)) {
         if (pick.id && list.find((item) => item.id === pick.id._id)) {
-          let content = list.find((item) => item.id === pick.id._id).content
+          let content = list.find((item) => item.id === pick.id._id)?.content
           TooltipDiv.showAt(event.position, `${content}`)
           viewer.scene.screenSpaceCameraController.enableRotate = false
           viewer.scene.screenSpaceCameraController.enableTranslate = false

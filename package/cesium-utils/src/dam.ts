@@ -10,6 +10,7 @@ const createDam = (lon: number, lat: number, height: number, url: string, viewer
   viewer.entities.add({
     name: url,
     position: position,
+    // @ts-ignore
     orientation: orientation,
     model: {
       uri: url,

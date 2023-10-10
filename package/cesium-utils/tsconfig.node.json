@@ -5,12 +5,18 @@
     "vitest.config.*",
     "cypress.config.*",
     "nightwatch.conf.*",
-    "playwright.config.*"
+    "playwright.config.*",
+    "type/**/*.ts",
+    "src/**/*.ts"
   ],
+  "exclude": ["node_modules"],
   "compilerOptions": {
+    "allowJs": true,
     "composite": true,
     "module": "ESNext",
-    "moduleResolution": "Bundler",
-    "types": ["node"]
+    "lib": ["DOM","ES2020","DOM.Iterable"],
+    "moduleResolution": "Node",
+    "types": ["node"],
+    "declaration": true
   }
 }

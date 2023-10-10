@@ -1,29 +1,29 @@
 var Y = Object.defineProperty;
-var Z = (e, t, i) => t in e ? Y(e, t, { enumerable: !0, configurable: !0, writable: !0, value: i }) : e[t] = i;
-var z = (e, t, i) => (Z(e, typeof t != "symbol" ? t + "" : t, i), i);
-import { GeometryInstance as P, PolygonGeometry as k, PolygonHierarchy as M, Cartesian3 as o, Primitive as B, MaterialAppearance as A, Material as w, Math as g, HeadingPitchRoll as q, Transforms as J, buildModuleUrl as $, WebMapTileServiceImageryProvider as Q, ScreenSpaceEventHandler as b, defined as C, CallbackProperty as X, ScreenSpaceEventType as u, Color as h, HeightReference as f, SceneTransforms as L, Ion as e1, Viewer as t1, Terrain as i1, ImageryLayer as n1, createOsmBuildingsAsync as y1, Cesium3DTileset as a1, Cartographic as o1, DistanceDisplayCondition as I, LabelStyle as O, Cartesian2 as H, Matrix4 as D, HeadingPitchRange as s1, Entity as N, NearFarScalar as r1, PolylineGlowMaterialProperty as x1 } from "cesium";
+var Z = (e, i, n) => i in e ? Y(e, i, { enumerable: !0, configurable: !0, writable: !0, value: n }) : e[i] = n;
+var z = (e, i, n) => (Z(e, typeof i != "symbol" ? i + "" : i, n), n);
+import { GeometryInstance as P, PolygonGeometry as M, PolygonHierarchy as k, Cartesian3 as o, Primitive as A, MaterialAppearance as O, Material as w, Math as C, HeadingPitchRoll as q, Transforms as J, buildModuleUrl as $, WebMapTileServiceImageryProvider as Q, ScreenSpaceEventHandler as I, defined as T, CallbackProperty as X, ScreenSpaceEventType as u, Color as v, HeightReference as g, SceneTransforms as R, Ion as e1, Viewer as i1, Terrain as t1, ImageryLayer as n1, createOsmBuildingsAsync as y1, Cesium3DTileset as a1, Cartographic as s1, DistanceDisplayCondition as b, LabelStyle as H, Cartesian2 as G, Matrix4 as _, HeadingPitchRange as o1, Entity as V, NearFarScalar as r1, PolylineGlowMaterialProperty as x1 } from "cesium";
 /*!
- * @front-end-utils/cesium-utils 1.0.0
+ * @front-end-framework/cesium-utils 1.0.0
  * Copyright 2023-2023. All Rights Reserved
  */
-let _ = function() {
+let S = function() {
   let e = !1;
-  function t() {
+  function i() {
   }
-  return t.initTool = function(i) {
+  return i.initTool = function(n) {
     if (e)
       return;
-    let n = document.createElement("DIV");
-    n.className = "toolTip-left";
     let y = document.createElement("DIV");
-    y.className = "tooltipdiv-inner", n.appendChild(y), this._div = n, this._title = y, i.appendChild(n), e = !0;
-  }, t.setVisible = function(i) {
-    e && (this._div.style.display = i ? "block" : "none");
-  }, t.showAt = function(i, n) {
-    e && i && n && (this.setVisible(!0), this._title.innerHTML = n, this._div.style.position = "absolute", this._div.style.left = i.x + 60 + "px", this._div.style.top = i.y - this._div.clientHeight / 2 + "px");
-  }, t;
+    y.className = "toolTip-left";
+    let a = document.createElement("DIV");
+    a.className = "tooltipdiv-inner", y.appendChild(a), this._div = y, this._title = a, n.appendChild(y), e = !0;
+  }, i.setVisible = function(n) {
+    e && (this._div.style.display = n ? "block" : "none");
+  }, i.showAt = function(n, y) {
+    e && n && y && (this.setVisible(!0), this._title.innerHTML = y, this._div.style.position = "absolute", this._div.style.left = n.x + 60 + "px", this._div.style.top = n.y - this._div.clientHeight / 2 + "px");
+  }, i;
 }();
-const m1 = [
+const p1 = [
   {
     x: -1.7044477235940404e6,
     y: 5271533795735936e-9,
@@ -860,7 +860,7 @@ const m1 = [
           </div>
     `
   }
-], p1 = [
+], m1 = [
   {
     x: -1.7058683929639643e6,
     y: 5270068873714908e-9,
@@ -1701,7 +1701,7 @@ const m1 = [
           </div>
     `
   }
-], u1 = [
+], f1 = [
   {
     x: -1.7038469050667312e6,
     y: 5271072307559212e-9,
@@ -1897,7 +1897,7 @@ const m1 = [
     y: 5271071993451451e-9,
     z: 3152345262727367e-9
   }
-], f1 = [
+], u1 = [
   {
     x: -1.7043269071234406e6,
     y: 5271643980755049e-9,
@@ -2035,32 +2035,32 @@ const m1 = [
   }
 ];
 class g1 {
-  constructor(t, i, n, y, a) {
+  constructor(i, n, y, a, t) {
     z(this, "primitive");
     z(this, "extrudedHeight");
     z(this, "degrees");
     z(this, "viewer");
     z(this, "id");
     z(this, "height");
-    this.extrudedHeight = y, this.degrees = n, this.viewer = t, this.id = i, this.height = a, this._drawPoly(n);
+    this.extrudedHeight = a, this.degrees = y, this.viewer = i, this.id = n, this.height = t, this._drawPoly(y);
   }
-  _drawPoly(t) {
-    let i = this;
-    const n = new P({
-      geometry: new k({
-        polygonHierarchy: new M(
-          t.map((y) => new o(y.x, y.y, y.z))
+  _drawPoly(i) {
+    let n = this;
+    const y = new P({
+      geometry: new M({
+        polygonHierarchy: new k(
+          i.map((a) => new o(a.x, a.y, a.z))
         ),
         // extrudedHeight: that.extrudedHeight
-        height: i.height,
-        extrudedHeight: i.extrudedHeight
+        height: n.height,
+        extrudedHeight: n.extrudedHeight
       }),
-      id: i.id
+      id: n.id
     });
     this.primitive = this.viewer.scene.primitives.add(
-      new B({
-        geometryInstances: n,
-        appearance: new A({
+      new A({
+        geometryInstances: y,
+        appearance: new O({
           material: w.fromType("Color")
         }),
         releaseGeometryInstances: !1
@@ -2086,23 +2086,23 @@ class g1 {
     this.primitive && this.viewer.scene.primitives.remove(this.primitive), this._drawPoly(this.degrees);
   }
 }
-const C1 = (e, t, i, n) => {
-  const y = new P({
-    geometry: new k({
-      polygonHierarchy: new M(o.fromDegreesArray(i)),
-      extrudedHeight: n
+const C1 = (e, i, n, y) => {
+  const a = new P({
+    geometry: new M({
+      polygonHierarchy: new k(o.fromDegreesArray(n)),
+      extrudedHeight: y
     }),
-    id: t
-  }), a = e.scene.primitives.add(
-    new B({
-      geometryInstances: y,
-      appearance: new A({
+    id: i
+  }), t = e.scene.primitives.add(
+    new A({
+      geometryInstances: a,
+      appearance: new O({
         material: w.fromType("Color")
       }),
       releaseGeometryInstances: !1
     })
   );
-  a.appearance.material = new w({
+  t.appearance.material = new w({
     fabric: {
       type: "Water",
       uniforms: {
@@ -2118,27 +2118,28 @@ const C1 = (e, t, i, n) => {
       }
     }
   });
-}, w1 = (e, t, i, n, y) => {
-  const a = o.fromDegrees(e, t, i), s = g.toRadians(165), r = 0, x = 0, v = new q(s, r, x), m = J.headingPitchRollQuaternion(a, v);
-  y.entities.add({
-    name: n,
-    position: a,
+}, T1 = (e, i, n, y, a) => {
+  const t = o.fromDegrees(e, i, n), r = C.toRadians(165), s = 0, x = 0, p = new q(r, s, x), m = J.headingPitchRollQuaternion(t, p);
+  a.entities.add({
+    name: y,
+    position: t,
+    // @ts-ignore
     orientation: m,
     model: {
-      uri: n,
+      uri: y,
       // minimumPixelSize: 256,
       maximumScale: 128,
       scale: 5.5
     }
   });
 };
-class T1 {
-  constructor(t, i = !0, n, y) {
+class w1 {
+  constructor(i, n = !0, y, a) {
     z(this, "viewer");
     z(this, "extrudedHeight");
     z(this, "primitive");
     z(this, "polygon_degrees");
-    this.viewer = t, this.extrudedHeight = y, this.polygon_degrees = [
+    this.viewer = i, this.extrudedHeight = a, this.polygon_degrees = [
       107.439043,
       29.84517,
       107.431064,
@@ -2220,18 +2221,18 @@ class T1 {
   _addDisListener() {
     this._drawPoly(this.polygon_degrees);
   }
-  _drawPoly(t) {
-    const i = this, n = new P({
-      geometry: new k({
-        polygonHierarchy: new M(o.fromDegreesArray(t)),
-        extrudedHeight: i.extrudedHeight
+  _drawPoly(i) {
+    const n = this, y = new P({
+      geometry: new M({
+        polygonHierarchy: new k(o.fromDegreesArray(i)),
+        extrudedHeight: n.extrudedHeight
       }),
       id: "poly-water"
     });
     this.primitive = this.viewer.scene.primitives.add(
-      new B({
-        geometryInstances: n,
-        appearance: new A({
+      new A({
+        geometryInstances: y,
+        appearance: new O({
           material: w.fromType("Color")
         }),
         releaseGeometryInstances: !1
@@ -2253,11 +2254,11 @@ class T1 {
     this.primitive && this.viewer.scene.primitives.remove(this.primitive), this._drawPoly(this.polygon_degrees);
   }
 }
-const d1 = "a6cfab9120b0a025c48f6cfb2655d183", I1 = (e, t) => {
-  const i = `https://t{s}.tianditu.gov.cn/cva_w/wmts?tk=${d1}&service=wmts&request=GetTile&version=1.0.0&LAYER=cva&tileMatrixSet=w&TileMatrix={TileMatrix}&TileRow={TileRow}&TileCol={TileCol}&style=default&format=tiles`;
-  t.imageryLayers.addImageryProvider(
+const d1 = "a6cfab9120b0a025c48f6cfb2655d183", b1 = (e, i) => {
+  const n = `https://t{s}.tianditu.gov.cn/cva_w/wmts?tk=${d1}&service=wmts&request=GetTile&version=1.0.0&LAYER=cva&tileMatrixSet=w&TileMatrix={TileMatrix}&TileRow={TileRow}&TileCol={TileCol}&style=default&format=tiles`;
+  i.imageryLayers.addImageryProvider(
     new Q({
-      url: i,
+      url: n,
       subdomains: ["0", "1", "2", "3", "4", "5", "6", "7"],
       layer: "tdtAnnoLayer",
       style: "default",
@@ -2266,72 +2267,87 @@ const d1 = "a6cfab9120b0a025c48f6cfb2655d183", I1 = (e, t) => {
     })
   );
 };
-function V(e) {
-  return p.entities.add({
+function N(e) {
+  return h.entities.add({
     position: e,
     point: {
-      color: h.WHITE,
+      color: v.WHITE,
       pixelSize: 5,
-      heightReference: f.CLAMP_TO_GROUND
+      heightReference: g.CLAMP_TO_GROUND
     }
   });
 }
 function W(e) {
-  let t;
-  return t = p.entities.add({
+  let i;
+  return i = h.entities.add({
     polyline: {
       positions: e,
       clampToGround: !0,
       width: 3
     }
-  }), t;
+  }), i;
 }
-let c = [], R, T;
+let c = [], L, f;
 function z1() {
-  c.pop(), console.log(c, "activeShapePoints"), W(c), p.entities.remove(T), p.entities.remove(R), T = void 0, R = void 0, c = [];
+  c.pop(), console.log(c, "activeShapePoints"), W(c), f && h.entities.remove(f), L && h.entities.remove(L), f = void 0, L = void 0, c = [];
 }
-const b1 = (e) => {
-  const t = new b(e.canvas);
-  t.setInputAction(function(i) {
-    const n = e.camera.getPickRay(i.position), y = e.scene.globe.pick(n, e.scene);
-    if (C(y)) {
+const I1 = (e) => {
+  const i = new I(e.canvas);
+  i.setInputAction(function(n) {
+    const y = e.camera.getPickRay(n.position);
+    if (!y)
+      return;
+    const a = e.scene.globe.pick(y, e.scene);
+    if (T(a)) {
+      if (!a)
+        return;
       if (c.length === 0) {
-        T = V(y), c.push(y);
-        const a = new X(function() {
+        f = N(a), c.push(a);
+        const t = new X(function() {
           return c;
         }, !1);
-        R = W(a);
+        L = W(t);
       }
-      c.push(y), V(y);
+      c.push(a), N(a);
     }
-  }, u.LEFT_CLICK), t.setInputAction(function(i) {
-    if (C(T)) {
-      const n = e.camera.getPickRay(i.endPosition), y = e.scene.globe.pick(n, e.scene);
-      C(y) && (T.position.setValue(y), c.pop(), c.push(y));
+  }, u.LEFT_CLICK), i.setInputAction(function(n) {
+    if (T(f)) {
+      const y = e.camera.getPickRay(n.position);
+      if (!y)
+        return;
+      const a = e.scene.globe.pick(y, e.scene);
+      if (T(a)) {
+        if (!f || !a)
+          return;
+        f.position = a, c.pop(), c.push(a);
+      }
     }
-  }, u.MOUSE_MOVE), t.setInputAction(function(i) {
+  }, u.MOUSE_MOVE), i.setInputAction(function(n) {
     z1();
   }, u.RIGHT_CLICK);
-}, E1 = (e, t, i, n, y) => {
-  document.getElementById(t).style.display = i, document.getElementById(t).style.left = L.wgs84ToWindowCoordinates(e.scene, n).x - 220 / 2 + "px", document.getElementById(t).style.top = L.wgs84ToWindowCoordinates(e.scene, n).y - 150 + "px", e.scene.postRender.addEventListener(() => {
-    let s = L.wgs84ToWindowCoordinates(e.scene, n);
-    s !== void 0 && (document.getElementById(t).style.left = s.x - 220 / 2 + "px", document.getElementById(t).style.top = s.y - 150 + "px");
+}, D1 = (e, i, n, y, a) => {
+  const t = document.getElementById(i);
+  if (!t)
+    return;
+  t.style.display = n, t.style.left = R.wgs84ToWindowCoordinates(e.scene, y).x - 220 / 2 + "px", t.style.top = R.wgs84ToWindowCoordinates(e.scene, y).y - 150 + "px", e.scene.postRender.addEventListener(() => {
+    let s = R.wgs84ToWindowCoordinates(e.scene, y);
+    s !== void 0 && (t.style.left = s.x - 220 / 2 + "px", t.style.top = s.y - 150 + "px");
   });
-  let a = new b(e.scene.canvas);
-  e.scene.camera.positionCartographic.height > 2e3 ? document.getElementById(t) && (document.getElementById(t).style.display = "none") : document.getElementById(t) && (document.getElementById(t).style.display = "block"), a.setInputAction(function() {
-    e.scene.camera.positionCartographic.height > y ? document.getElementById(t) && (document.getElementById(t).style.display = "none") : document.getElementById(t) && (document.getElementById(t).style.display = "block");
+  let r = new I(e.scene.canvas);
+  e.scene.camera.positionCartographic.height > 2e3 ? t && (t.style.display = "none") : t && (t.style.display = "block"), r.setInputAction(function() {
+    e.scene.camera.positionCartographic.height > a ? t && (t.style.display = "none") : t && (t.style.display = "block");
   }, u.WHEEL);
 };
-let p;
+let h;
 e1.defaultAccessToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiI5NmFkZmZjMS01NDYzLTRhZjgtYTBhNi02N2ZkNTVkMTgxY2EiLCJpZCI6NTIwMDksImlhdCI6MTYxODM5Mjg1MX0.cB8V3NKIBCzMkb3J6YwL3yafHUFGxGPMlR9syq3CdKY";
 window.CESIUM_BASE_URL = "/";
-const D1 = (e, t, i) => {
-  p = new t1(e, {
+const _1 = (e, i, n) => {
+  h = new i1(e, {
     animation: !1,
     fullscreenButton: !1,
     homeButton: !1,
     baseLayerPicker: !1,
-    terrain: i1.fromWorldTerrain(),
+    terrain: t1.fromWorldTerrain(),
     timeline: !1,
     navigationHelpButton: !1,
     scene3DOnly: !0,
@@ -2339,30 +2355,30 @@ const D1 = (e, t, i) => {
     geocoder: !1,
     infoBox: !1,
     baseLayer: !1,
-    ...t
+    ...i
   });
-  const n = n1.fromWorldImagery({});
-  return p.scene.imageryLayers.add(n), n.readyEvent.addEventListener((y) => {
-    y.errorEvent.addEventListener((a) => {
-      alert(`网络连接失败，请刷新! ${a}`), window.location.reload();
-    }), i();
-  }), p.cesiumWidget.creditContainer.style.display = "none", p.scene.globe.depthTestAgainstTerrain = !1, p;
-}, _1 = (e, t, i, n, y, a, s, r) => {
+  const y = n1.fromWorldImagery({});
+  return h.scene.imageryLayers.add(y), y.readyEvent.addEventListener((a) => {
+    a.errorEvent.addEventListener((t) => {
+      n && n();
+    });
+  }), h.cesiumWidget.creditContainer.style.display = "none", h.scene.globe.depthTestAgainstTerrain = !1, h;
+}, S1 = (e, i, n, y, a, t, r, s) => {
   e.camera.flyTo({
-    destination: o.fromDegrees(t, i, n),
+    destination: o.fromDegrees(i, n, y),
     orientation: {
-      heading: g.toRadians(y),
-      pitch: g.toRadians(a),
-      roll: g.toRadians(s)
+      heading: C.toRadians(a),
+      pitch: C.toRadians(t),
+      roll: C.toRadians(r)
     },
-    duration: r
+    duration: s
   });
-}, S1 = (e) => {
-  y1().then((t) => {
-    e.scene.primitives.add(t);
+}, L1 = (e) => {
+  y1().then((i) => {
+    e.scene.primitives.add(i);
   });
-}, L1 = async (e, t, i, n, y, a, s, r, x, v, m = 1, l = 536870912) => {
-  const d = await a1.fromUrl(t, {
+}, E1 = async (e, i, n, y, a, t, r, s, x, p, m = 1, l = 536870912) => {
+  const d = await a1.fromUrl(i, {
     show: !0,
     backFaceCulling: !0,
     skipLevelOfDetail: !0,
@@ -2380,173 +2396,174 @@ const D1 = (e, t, i) => {
     cacheBytes: l
   });
   e.scene.primitives.add(d);
-  const E = d.boundingSphere.center, G = o1.fromCartesian(E), U = g.toDegrees(G.longitude), F = g.toDegrees(G.latitude);
-  if (y && a && s && e.entities.add({
-    id: `${y}`,
+  const D = d.boundingSphere.center, B = s1.fromCartesian(D), U = C.toDegrees(B.longitude), F = C.toDegrees(B.latitude);
+  if (a && t && r && e.entities.add({
+    id: `${a}`,
     position: o.fromDegrees(U, F, 388),
     billboard: {
-      image: `${s}`,
-      heightReference: f.RELATIVE_TO_GROUND,
+      image: `${r}`,
+      heightReference: g.RELATIVE_TO_GROUND,
       width: 40,
       height: 40,
-      distanceDisplayCondition: new I(x, v)
+      distanceDisplayCondition: new b(x, p)
     },
     label: {
-      text: `${a}`,
+      text: `${t}`,
       font: "14px",
-      heightReference: f.RELATIVE_TO_GROUND,
+      heightReference: g.RELATIVE_TO_GROUND,
       disableDepthTestDistance: 999999,
-      style: O.FILL,
+      style: H.FILL,
       outlineWidth: 2,
       showBackground: !0,
-      backgroundColor: new h(0.5, 0.5, 0.5, 0.5),
-      fillColor: h.BLACK,
-      pixelOffset: new H(80, 0),
-      distanceDisplayCondition: new I(x, v)
+      backgroundColor: new v(0.5, 0.5, 0.5, 0.5),
+      fillColor: v.BLACK,
+      pixelOffset: new G(80, 0),
+      distanceDisplayCondition: new b(x, p)
     }
-  }), typeof r == "number") {
-    const S = new o(E.x * r, E.y * r, E.z * r);
-    d.modelMatrix = D.fromTranslation(S), y === "chiGuHan" && (d.modelMatrix = D.fromTranslation(new o(1, 0, 0))), y === "gongBeiQiao" && (d.modelMatrix = D.fromTranslation(new o(-1, 8, 0)));
+  }), typeof s == "number") {
+    const E = new o(D.x * s, D.y * s, D.z * s);
+    d.modelMatrix = _.fromTranslation(E), a === "chiGuHan" && (d.modelMatrix = _.fromTranslation(new o(1, 0, 0))), a === "gongBeiQiao" && (d.modelMatrix = _.fromTranslation(new o(-1, 8, 0)));
   } else {
-    const S = o.fromRadians(0, 0, 0), K = o.fromRadians(0, 0, i), j = o.subtract(K, S, new o());
-    d.modelMatrix = D.fromTranslation(j);
+    const E = o.fromRadians(0, 0, 0), K = o.fromRadians(0, 0, n), j = o.subtract(K, E, new o());
+    d.modelMatrix = _.fromTranslation(j);
   }
-  n && e.zoomTo(d, new s1(0.5, -0.2, d.boundingSphere.radius * 1));
-}, R1 = (e, t, i, n, y, a, s, r, x) => {
-  if (a instanceof N)
-    e.entities.add(a);
+  y && e.zoomTo(d, new o1(0.5, -0.2, d.boundingSphere.radius * 1));
+}, R1 = (e, i, n, y, a, t, r, s, x) => {
+  if (t instanceof V)
+    e.entities.add(t);
   else {
     e.entities.add({
-      id: t,
-      position: o.fromDegrees(n, y, 600),
+      id: i,
+      position: o.fromDegrees(y, a, 600),
       billboard: {
-        image: i,
-        heightReference: f.RELATIVE_TO_GROUND,
+        image: n,
+        heightReference: g.RELATIVE_TO_GROUND,
         width: 40,
         height: 40,
         disableDepthTestDistance: 999999
       },
       label: {
-        text: t,
+        text: i,
         font: "14px",
-        heightReference: f.RELATIVE_TO_GROUND,
+        heightReference: g.RELATIVE_TO_GROUND,
         disableDepthTestDistance: 999999,
-        style: O.FILL,
+        style: H.FILL,
         outlineWidth: 2,
         showBackground: !0,
-        backgroundColor: new h(0.5, 0.5, 0.5, 0.5),
-        fillColor: h.BLACK,
-        pixelOffset: new H(80, 0)
+        backgroundColor: new v(0.5, 0.5, 0.5, 0.5),
+        fillColor: v.BLACK,
+        pixelOffset: new G(80, 0)
       },
-      ...a
+      ...t
     });
     const m = [];
-    m.push(o.fromDegrees(n, y, r)), m.push(o.fromDegrees(n, y, x));
+    m.push(o.fromDegrees(y, a, s)), m.push(o.fromDegrees(y, a, x));
   }
-  new b(e.scene.canvas).setInputAction((m) => {
+  new I(e.scene.canvas).setInputAction((m) => {
     const l = e.scene.pick(m.position);
-    C(l) && l.id && l.id._id === t && s();
+    T(l) && l.id && l.id._id === i && r();
   }, u.LEFT_CLICK);
-}, P1 = (e, t, i, n, y, a, s, r, x, v = 600) => {
-  if (a instanceof N)
-    e.entities.add(a);
+}, P1 = (e, i, n, y, a, t, r, s, x, p = 600) => {
+  if (t instanceof V)
+    e.entities.add(t);
   else {
     e.entities.add({
-      id: t,
-      position: o.fromDegrees(n, y, v),
+      id: i,
+      position: o.fromDegrees(y, a, p),
       billboard: {
-        image: i,
-        heightReference: f.RELATIVE_TO_GROUND,
+        image: n,
+        heightReference: g.RELATIVE_TO_GROUND,
         width: 40,
         height: 40,
         disableDepthTestDistance: 999999,
-        distanceDisplayCondition: new I(r, x)
+        distanceDisplayCondition: new b(s, x)
       },
       label: {
-        text: t,
+        text: i,
         font: "14px",
-        heightReference: f.RELATIVE_TO_GROUND,
+        heightReference: g.RELATIVE_TO_GROUND,
         disableDepthTestDistance: 999999,
-        style: O.FILL,
+        style: H.FILL,
         outlineWidth: 2,
         showBackground: !0,
-        backgroundColor: new h(0.5, 0.5, 0.5, 0.5),
-        fillColor: h.BLACK,
-        pixelOffset: new H(80, 0),
-        distanceDisplayCondition: new I(r, x)
+        backgroundColor: new v(0.5, 0.5, 0.5, 0.5),
+        fillColor: v.BLACK,
+        pixelOffset: new G(80, 0),
+        distanceDisplayCondition: new b(s, x)
       },
-      ...a
+      ...t
     });
     const l = [];
-    l.push(o.fromDegrees(n, y, r)), l.push(o.fromDegrees(n, y, x));
+    l.push(o.fromDegrees(y, a, s)), l.push(o.fromDegrees(y, a, x));
   }
-  new b(e.scene.canvas).setInputAction((l) => {
+  new I(e.scene.canvas).setInputAction((l) => {
     const d = e.scene.pick(l.position);
-    C(d) && d.id && d.id._id === t && s();
+    T(d) && d.id && d.id._id === i && r();
   }, u.LEFT_CLICK);
-}, k1 = (e, t, i, n = []) => {
-  t.forEach((a, s) => {
-    a.entity && e.entities.add({
-      id: a.id,
-      position: new o(a.x, a.y, a.z),
+}, M1 = (e, i, n, y = []) => {
+  i.forEach((t) => {
+    t.entity && e.entities.add({
+      id: t.id,
+      position: new o(t.x, t.y, t.z),
       billboard: {
-        image: a.image,
+        image: t.image,
         // heightReference: HeightReference.CLAMP_TO_GROUND,
         width: 40,
         height: 40,
         scaleByDistance: new r1(0, 1, 5e10, 1),
         disableDepthTestDistance: 999999,
-        distanceDisplayCondition: new I(0, 1e4)
+        distanceDisplayCondition: new b(0, 1e4)
       }
     });
   }), e.entities.add({
     name: "red",
     show: !0,
     polyline: {
-      positions: t.map((a) => new o(a.x, a.y, a.z)),
+      positions: i.map((t) => new o(t.x, t.y, t.z)),
       clampToGround: !0,
       width: 4,
       material: new x1({
         glowPower: 1,
-        color: h.BLUE
+        color: v.BLUE
       })
       // material: new CustomMaterialProperty(undefined) as MaterialProperty
     }
   });
-  const y = new b(e.scene.canvas);
-  _.initTool(e.cesiumWidget.container), i && y.setInputAction((a) => {
-    const s = e.scene.pick(a.position);
-    if (C(s))
-      if (s.id && n.find((r) => r.id === s.id._id)) {
-        let r = n.find((x) => x.id === s.id._id).content;
-        _.showAt(a.position, `${r}`), e.scene.screenSpaceCameraController.enableRotate = !1, e.scene.screenSpaceCameraController.enableTranslate = !1, e.scene.screenSpaceCameraController.enableZoom = !1, e.scene.screenSpaceCameraController.enableTilt = !1;
+  const a = new I(e.scene.canvas);
+  S.initTool(e.cesiumWidget.container), n && a.setInputAction((t) => {
+    var s;
+    const r = e.scene.pick(t.position);
+    if (T(r))
+      if (r.id && y.find((x) => x.id === r.id._id)) {
+        let x = (s = y.find((p) => p.id === r.id._id)) == null ? void 0 : s.content;
+        S.showAt(t.position, `${x}`), e.scene.screenSpaceCameraController.enableRotate = !1, e.scene.screenSpaceCameraController.enableTranslate = !1, e.scene.screenSpaceCameraController.enableZoom = !1, e.scene.screenSpaceCameraController.enableTilt = !1;
       } else
-        _.setVisible(!1), e.scene.screenSpaceCameraController.enableRotate = !0, e.scene.screenSpaceCameraController.enableTranslate = !0, e.scene.screenSpaceCameraController.enableZoom = !0, e.scene.screenSpaceCameraController.enableTilt = !0;
+        S.setVisible(!1), e.scene.screenSpaceCameraController.enableRotate = !0, e.scene.screenSpaceCameraController.enableTranslate = !0, e.scene.screenSpaceCameraController.enableZoom = !0, e.scene.screenSpaceCameraController.enableTilt = !0;
     else
-      _.setVisible(!1), e.scene.screenSpaceCameraController.enableRotate = !0, e.scene.screenSpaceCameraController.enableTranslate = !0, e.scene.screenSpaceCameraController.enableZoom = !0, e.scene.screenSpaceCameraController.enableTilt = !0;
+      S.setVisible(!1), e.scene.screenSpaceCameraController.enableRotate = !0, e.scene.screenSpaceCameraController.enableTranslate = !0, e.scene.screenSpaceCameraController.enableZoom = !0, e.scene.screenSpaceCameraController.enableTilt = !0;
   }, u.LEFT_CLICK);
 };
 export {
-  T1 as SubmergenceAnalysis,
-  w1 as createDam,
-  S1 as createOsmBuild,
-  E1 as createPopu,
+  w1 as SubmergenceAnalysis,
+  T1 as createDam,
+  L1 as createOsmBuild,
+  D1 as createPopu,
   C1 as createWater,
-  m1 as data,
-  p1 as data2,
+  p1 as data,
+  m1 as data2,
   h1 as data3,
   v1 as data4,
-  u1 as data_dongfanghong,
-  f1 as data_wangjiagou,
-  b1 as drawLine,
-  I1 as geoMark,
-  D1 as initViewer,
+  f1 as data_dongfanghong,
+  u1 as data_wangjiagou,
+  I1 as drawLine,
+  b1 as geoMark,
+  _1 as initViewer,
   R1 as loadEntities,
   P1 as loadPump,
-  L1 as loadTile,
-  k1 as loadWaterPipe,
-  _1 as lookAt,
-  p as viewer,
+  E1 as loadTile,
+  M1 as loadWaterPipe,
+  S1 as lookAt,
+  h as viewer,
   g1 as waterReservoir
 };
 //# sourceMappingURL=index.es.js.map

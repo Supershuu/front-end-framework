@@ -13,9 +13,9 @@ import {
 export class SubmergenceAnalysis {
   viewer: Viewer
   extrudedHeight: number
-  primitive: Primitive
+  primitive!: Primitive
   polygon_degrees: number[]
-  constructor(viewer, isTerrain = true, height_max, height_min) {
+  constructor(viewer:Viewer, isTerrain = true, height_max:number, height_min:number) {
     this.viewer = viewer
     this.extrudedHeight = height_min
     this.polygon_degrees = [
@@ -36,7 +36,7 @@ export class SubmergenceAnalysis {
     this._drawPoly(this.polygon_degrees)
   }
 
-  _drawPoly(degrees) {
+  _drawPoly(degrees:number[]) {
     const that = this
     // let entity =
     //     this.viewer.entities.add({
