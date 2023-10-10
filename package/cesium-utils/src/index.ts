@@ -24,7 +24,7 @@ import {
 } from 'cesium'
 // @ts-ignore
 import TooltipDiv from './tooltip.js'
-import type {WaterDataType} from "../type/WaterDataType";
+import type { WaterDataType } from '../type/WaterDataType'
 export { data4, data3, data2, data_wangjiagou, data_dongfanghong, data } from './GeoArr'
 let viewer: Viewer
 Ion.defaultAccessToken =
@@ -55,14 +55,23 @@ const initViewer = (
   viewer.scene.imageryLayers.add(imageryLayer)
   imageryLayer.readyEvent.addEventListener((provider) => {
     provider.errorEvent.addEventListener((error) => {
-      if (callBack)callBack()
+      if (callBack) callBack()
     })
   })
   ;(viewer.cesiumWidget.creditContainer as HTMLElement).style.display = 'none'
   viewer.scene.globe.depthTestAgainstTerrain = false
   return viewer
 }
-const lookAt = (viewer: Viewer, lat:number, lon:number, height:number, heading:number, pitch:number, roll:number, duration:number) => {
+const lookAt = (
+  viewer: Viewer,
+  lat: number,
+  lon: number,
+  height: number,
+  heading: number,
+  pitch: number,
+  roll: number,
+  duration: number
+) => {
   viewer.camera.flyTo({
     destination: Cartesian3.fromDegrees(lat, lon, height),
     orientation: {
@@ -268,7 +277,12 @@ const loadPump = (
     }
   }, ScreenSpaceEventType.LEFT_CLICK)
 }
-const loadWaterPipe = (viewer: Viewer, datas:Array<WaterDataType>, flag:boolean, list:Array<{id:string,content:string}> = []) => {
+const loadWaterPipe = (
+  viewer: Viewer,
+  datas: Array<WaterDataType>,
+  flag: boolean,
+  list: Array<{ id: string; content: string }> = []
+) => {
   datas.forEach((item) => {
     if (item.entity) {
       viewer.entities.add({
@@ -307,7 +321,7 @@ const loadWaterPipe = (viewer: Viewer, datas:Array<WaterDataType>, flag:boolean,
       const pick = viewer.scene.pick(event.position)
       if (defined(pick)) {
         if (pick.id && list.find((item) => item.id === pick.id._id)) {
-          let content = list.find((item) => item.id === pick.id._id)?.content
+          const content = list.find((item) => item.id === pick.id._id)?.content
           TooltipDiv.showAt(event.position, `${content}`)
           viewer.scene.screenSpaceCameraController.enableRotate = false
           viewer.scene.screenSpaceCameraController.enableTranslate = false

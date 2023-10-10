@@ -4,8 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "npm run dev -w app-test"
+    "dev": "npm run dev -w app-test",
+    "commit": "npm run type-check --workspaces && npm run format --workspaces",
+    "prepare": "husky install"
   },
   "keywords": [],
   "author": "",
@@ -39,6 +40,7 @@
     "eslint": "^8.49.0",
     "eslint-plugin-cypress": "^2.15.1",
     "eslint-plugin-vue": "^9.17.0",
+    "husky": "^8.0.3",
     "jsdom": "^22.1.0",
     "npm-run-all2": "^6.0.6",
     "prettier": "^3.0.3",

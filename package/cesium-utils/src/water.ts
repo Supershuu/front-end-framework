@@ -24,8 +24,8 @@ class waterReservoir {
     this.height = height
     this._drawPoly(degrees)
   }
-  _drawPoly(degrees:Cartesian3[]) {
-    let that = this
+  _drawPoly(degrees: Cartesian3[]) {
+    const that = this
     const instance = new GeometryInstance({
       geometry: new PolygonGeometry({
         polygonHierarchy: new PolygonHierarchy(

@@ -13,20 +13,20 @@ const createPopu = (
   cartesian: Cartesian3,
   showLocation: number
 ) => {
-  const domElement = document.getElementById(id);
-  if (!domElement)return;
+  const domElement = document.getElementById(id)
+  if (!domElement) return
   domElement.style.display = styleShow
   domElement.style.left =
     SceneTransforms.wgs84ToWindowCoordinates(viewer.scene, cartesian).x - 220 / 2 + 'px'
   domElement.style.top =
     SceneTransforms.wgs84ToWindowCoordinates(viewer.scene, cartesian).y - 150 + 'px'
   viewer.scene.postRender.addEventListener(() => {
-    let windowPosition = SceneTransforms.wgs84ToWindowCoordinates(viewer.scene, cartesian)
+    const windowPosition = SceneTransforms.wgs84ToWindowCoordinates(viewer.scene, cartesian)
     if (windowPosition === undefined) return
     domElement.style.left = windowPosition.x - 220 / 2 + 'px'
     domElement.style.top = windowPosition.y - 150 + 'px'
   })
-  let handler = new ScreenSpaceEventHandler(viewer.scene.canvas)
+  const handler = new ScreenSpaceEventHandler(viewer.scene.canvas)
   if (viewer.scene.camera.positionCartographic.height > 2000) {
     if (domElement) domElement.style.display = 'none'
   } else {

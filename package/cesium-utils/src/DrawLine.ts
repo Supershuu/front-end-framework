@@ -1,9 +1,11 @@
 import { viewer } from './index'
 import {
-  CallbackProperty, Cartesian3,
+  CallbackProperty,
+  Cartesian3,
   Color,
   ColorMaterialProperty,
-  defined, Entity,
+  defined,
+  Entity,
   HeightReference,
   PolygonHierarchy,
   ScreenSpaceEventHandler,
@@ -11,7 +13,7 @@ import {
   Viewer
 } from 'cesium'
 
-function createPoint(worldPosition:Cartesian3) {
+function createPoint(worldPosition: Cartesian3) {
   const point = viewer.entities.add({
     position: worldPosition,
     point: {
@@ -22,7 +24,7 @@ function createPoint(worldPosition:Cartesian3) {
   })
   return point
 }
-function drawShape(positionData:CallbackProperty|Cartesian3[]) {
+function drawShape(positionData: CallbackProperty | Cartesian3[]) {
   let shape
   if (drawingMode === 'line') {
     shape = viewer.entities.add({
@@ -43,9 +45,9 @@ function drawShape(positionData:CallbackProperty|Cartesian3[]) {
   return shape
 }
 let drawingMode = 'line'
-let activeShapePoints:Cartesian3[] = []
-let activeShape:Entity | undefined
-let floatingPoint:Entity | undefined
+let activeShapePoints: Cartesian3[] = []
+let activeShape: Entity | undefined
+let floatingPoint: Entity | undefined
 function terminateShape() {
   activeShapePoints.pop()
   console.log(activeShapePoints, 'activeShapePoints')
@@ -58,11 +60,11 @@ function terminateShape() {
 }
 const drawLine = (viewer: Viewer) => {
   const handler = new ScreenSpaceEventHandler(viewer.canvas)
-  handler.setInputAction(function (event:ScreenSpaceEventHandler.PositionedEvent) {
+  handler.setInputAction(function (event: ScreenSpaceEventHandler.PositionedEvent) {
     // We use `viewer.scene.globe.pick here instead of `viewer.camera.pickEllipsoid` so that
     // we get the correct point when mousing over terrain.
-    const ray = viewer.camera.getPickRay(event.position);
-    if (!ray) return;
+    const ray = viewer.camera.getPickRay(event.position)
+    if (!ray) return
     const earthPosition = viewer.scene.globe.pick(ray, viewer.scene)
     // `earthPosition` will be undefined if our mouse is not over the globe.
     if (defined(earthPosition)) {
@@ -83,13 +85,13 @@ const drawLine = (viewer: Viewer) => {
     }
   }, ScreenSpaceEventType.LEFT_CLICK)
 
-  handler.setInputAction(function (event:ScreenSpaceEventHandler.PositionedEvent) {
+  handler.setInputAction(function (event: ScreenSpaceEventHandler.PositionedEvent) {
     if (defined(floatingPoint)) {
-      const ray = viewer.camera.getPickRay(event.position);
-      if (!ray)return
+      const ray = viewer.camera.getPickRay(event.position)
+      if (!ray) return
       const newPosition = viewer.scene.globe.pick(ray, viewer.scene)
       if (defined(newPosition)) {
-        if (!floatingPoint || !newPosition) return;
+        if (!floatingPoint || !newPosition) return
         // @ts-ignore
         floatingPoint.position = newPosition
         activeShapePoints.pop()
@@ -98,7 +100,7 @@ const drawLine = (viewer: Viewer) => {
     }
   }, ScreenSpaceEventType.MOUSE_MOVE)
 
-  handler.setInputAction(function (event:ScreenSpaceEventHandler.PositionedEvent) {
+  handler.setInputAction(function (event: ScreenSpaceEventHandler.PositionedEvent) {
     terminateShape()
   }, ScreenSpaceEventType.RIGHT_CLICK)
 }
