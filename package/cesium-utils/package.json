@@ -1,7 +1,7 @@
 {
   "name": "@front-end-framework/cesium-utils",
   "version": "1.0.0",
-  "description": "front-end-utils",
+  "description": "cesium-utils",
   "main": "./lib/index.cjs.js",
   "module": "./lib/index.es.js",
   "types": "./lib/types/src/index.d.ts",
