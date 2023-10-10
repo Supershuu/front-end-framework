@@ -2,7 +2,7 @@
   "extends": "./tsconfig.node.json",
   "exclude": [],
   "compilerOptions": {
-    "composite": true,
+    "composite": false,
     "lib": [],
     "types": ["node", "jsdom"]
   }

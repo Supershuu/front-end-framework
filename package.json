@@ -1,12 +1,14 @@
 {
-  "name": "front-end-supershuu",
+  "name": "front-end-framework",
   "version": "1.0.0",
-  "description": "",
+  "description": "前端组件/工具库",
   "main": "index.js",
   "scripts": {
     "dev": "npm run dev -w app-test",
     "commit": "npm run type-check --workspaces && npm run format --workspaces",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "publish:cesium": "npm run build -w ./package/cesium-utils && npm publish",
+    "publish:three": "npm run build -w ./package/threeJs-utils && npm publish"
   },
   "keywords": [],
   "author": "",
@@ -14,7 +16,8 @@
   "workspaces": [
     "package/cesium-utils",
     "package/threeJs-utils",
-    "package/app-test"
+    "package/app-test",
+    "package/http-utils"
   ],
   "dependencies": {
     "cesium": "^1.107.2",
