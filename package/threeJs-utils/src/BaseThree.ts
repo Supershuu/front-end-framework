@@ -61,7 +61,7 @@ class ThreeInit {
   tag!: CSS3DObject
   constructor(position: Vector3, dom: HTMLElement) {
     this.cameraPosition = { x: position.x, y: position.y, z: position.z }
-    this.dom = dom
+    this.dom = dom;
   }
   // 初始化场景
   initScene(): void {
@@ -83,6 +83,7 @@ class ThreeInit {
     this.renderer.render(this.scene, this.camera)
     this.composer = new EffectComposer(this.renderer)
     this.scene.background = new Color(0xbfe3dd)
+    console.log(this.scene)
     window.addEventListener('resize', () => {
       this.camera.aspect = window.innerWidth / window.innerHeight
       this.camera.updateProjectionMatrix()

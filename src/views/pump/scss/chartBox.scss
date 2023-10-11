@@ -1,0 +1,18 @@
+.box {
+  border: 1px solid rgba(25,186,139,.17);
+  padding: 0 0.2rem 0.4rem 0.15rem;
+  background: linear-gradient(to top, #02a6b5, #02a6b5) left top no-repeat,/*上左*/
+          linear-gradient(to right, #02a6b5, #02a6b5) left top no-repeat,/*左上*/
+          linear-gradient(to left, #02a6b5, #02a6b5) right top no-repeat,/*上右*/
+          linear-gradient(to bottom, #02a6b5, #02a6b5) right top no-repeat,/*上右*/
+          linear-gradient(to left, #02a6b5, #02a6b5) left bottom no-repeat,/*下左*/
+          linear-gradient(to bottom, #02a6b5, #02a6b5) left bottom no-repeat,/*左下*/
+          linear-gradient(to top, #02a6b5, #02a6b5) right bottom no-repeat,/*下右*/
+          linear-gradient(to left, #02a6b5, #02a6b5) right bottom no-repeat;/*右下*/
+  background-size: 2px 16px, 16px 2px, 2px 16px, 16px 2px;
+  background-color: rgba(36,56,128,0.21);
+  margin-bottom: 0.5rem;
+  >div {
+    height: 100%;
+  }
+}
