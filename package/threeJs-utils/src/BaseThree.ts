@@ -61,7 +61,7 @@ class ThreeInit {
   tag!: CSS3DObject
   constructor(position: Vector3, dom: HTMLElement) {
     this.cameraPosition = { x: position.x, y: position.y, z: position.z }
-    this.dom = dom;
+    this.dom = dom
   }
   // 初始化场景
   initScene(): void {
@@ -82,7 +82,7 @@ class ThreeInit {
     // this.controls.enableZoom = false;
     this.renderer.render(this.scene, this.camera)
     this.composer = new EffectComposer(this.renderer)
-    this.scene.background = new Color(0xbfe3dd)
+    this.scene.background = null
     console.log(this.scene)
     window.addEventListener('resize', () => {
       this.camera.aspect = window.innerWidth / window.innerHeight
@@ -299,7 +299,7 @@ class ThreeInit {
     const _this = this
     let tilesRuntime: undefined | Runtime = undefined
     const result = await Loader3DTiles.load({
-      url: 'http://47.109.18.246:33301/tileset.json',
+      url: 'https://tileset.gytteam.com/lizhi/tileset.json',
       renderer: _this.renderer,
       options: {
         dracoDecoderPath: 'https://unpkg.com/three@0.137.0/examples/js/libs/draco',

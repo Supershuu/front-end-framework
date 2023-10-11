@@ -1,7 +1,7 @@
-import { Scene } from 'three'
-import { threeObj } from './index'
-import { CSS3DObject, CSS3DRenderer } from 'three/examples/jsm/renderers/CSS3DRenderer'
-import { TrackballControls } from 'three/examples/jsm/controls/TrackballControls'
+import {MOUSE, Scene} from 'three'
+import {threeObj} from './index'
+import {CSS3DObject, CSS3DRenderer} from 'three/examples/jsm/renderers/CSS3DRenderer'
+import {TrackballControls} from 'three/examples/jsm/controls/TrackballControls'
 
 const tagRender = (
   element: HTMLElement,
@@ -19,7 +19,9 @@ const tagRender = (
   threeObj.cssRender.domElement.style.position = 'absolute'
   threeObj.cssRender.domElement.style.top = '0'
   threeObj.dom.appendChild(threeObj.cssRender.domElement)
-  threeObj.trackBallControls = new TrackballControls(threeObj.camera, threeObj.cssRender.domElement)
+  threeObj.trackBallControls = new TrackballControls(threeObj.camera, threeObj.cssRender.domElement);
+  threeObj.trackBallControls.mouseButtons.LEFT = MOUSE.PAN;
+  threeObj.trackBallControls.mouseButtons.RIGHT = MOUSE.ROTATE
   const fn = () => {
     requestAnimationFrame(fn)
     threeObj.cssRender.render(threeObj.cssScene, threeObj.camera)

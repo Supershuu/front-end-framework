@@ -47,10 +47,12 @@ onMounted(() => {
   initThree(new Vector3(3808,1274,-4081), three.value);
   directionArrLight(list);
   ambientLight();
-  loadGlb('/model/tree02.glb', [1800,-380,0], [1200,1200,1200]);
-  loadGlb('/model/tree01.glb',[-1800,110,-200], [1200,1200,1200]);
+  threeObj.render();
+  // threeObj.loadGeo();
+  // loadGlb('/model/tree02.glb', [1800,-380,0], [1200,1200,1200]);
+  // loadGlb('/model/tree01.glb',[-1800,110,-200], [1200,1200,1200]);
   loadGlb('/model/room_inner.glb', [0,0,0],[200,200,200]);
-  loadGlb('/model/land.glb', [0,0,0], [200,200,200]);
+  // loadGlb('/model/land.glb', [0,0,0], [200,200,200]);
   tagRender(htmlWater1 as HTMLElement, [0,500,0], [0,Math.PI,0])
   threeObj.cssRender.domElement.addEventListener('pointerdown', fn);
 });
